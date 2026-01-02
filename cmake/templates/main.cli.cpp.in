@@ -1,0 +1,15 @@
+#define BUILD_WINDOWS
+
+#include<Windows.h>
+#include<stdio.h>
+
+#pragma comment(lib, "ntdll.lib")
+
+extern "C" void __stdcall RtlGetVersion(OSVERSIONINFO*);
+
+int main() {
+    OSVERSIONINFO osi = { sizeof(osi) };
+    RtlGetVersion(&osi);
+    printf("%d.%d.%d\n", osi.dwMajorVersion, osi.dwMinorVersion, osi.dwBuildNumber);
+    return 0;
+}

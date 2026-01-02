@@ -1,0 +1,9 @@
+#include<windows.h>
+
+int CALLBACK WinMain(
+    HINSTANCE hInstance, 
+    HINSTANCE hPrevInstance,
+    LPSTR lpCmdLine,
+    int nCmdShow) {
+        MessageBoxW(NULL, L"Hello Everyboding from @PROJECT_NAME@", L"@PROJECT_NAME@", MB_OK);
+}

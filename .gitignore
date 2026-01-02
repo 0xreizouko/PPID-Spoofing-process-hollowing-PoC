@@ -1,0 +1,72 @@
+####################################
+# Build directories
+####################################
+build/
+out/
+bin/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+
+####################################
+# Visual Studio / MSBuild
+####################################
+.vs/
+*.vcxproj*
+*.sln
+*.filters
+*.user
+*.log
+Debug/
+Release/
+x64/
+Win32/
+
+####################################
+# VS Code
+####################################
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+####################################
+# Compiler outputs
+####################################
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ilk
+*.exp
+*.obj
+*.res
+
+####################################
+# CMake presets & local config
+####################################
+CMakeUserPresets.json
+
+####################################
+# Temporary / backup files
+####################################
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+####################################
+# Logs
+####################################
+*.log
+
+####################################
+# Optional: generated manifests (keep source ones!)
+####################################
+*.manifest.res

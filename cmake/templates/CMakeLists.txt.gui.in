@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 4.0)
+project(@PROJECT_NAME@)
+
+include(${CMAKE_SOURCE_DIR}/cmake/common.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/windows_manifest.cmake)
+
+add_executable(${PROJECT_NAME}
+    WIN32
+    src/main.cpp
+)
+
+enable_optional_manifest(${PROJECT_NAME})
