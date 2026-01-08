@@ -1,11 +1,35 @@
-#define BUILD_WINDOWS
-#include<Windows.h>
+/* 1. Rename conflicting structs AND their pointer types to fix conflicting with windows APIs or that's what AI told me */
+#define _FILE_STAT_INFORMATION           _SDK_FILE_STAT_INFORMATION
+#define _FILE_STAT_LX_INFORMATION        _SDK_FILE_STAT_LX_INFORMATION
+#define _FILE_CASE_SENSITIVE_INFORMATION _SDK_FILE_CASE_SENSITIVE_INFORMATION
+
+#define FILE_STAT_INFORMATION            SDK_FILE_STAT_INFORMATION
+#define FILE_STAT_LX_INFORMATION         SDK_FILE_STAT_LX_INFORMATION
+#define FILE_CASE_SENSITIVE_INFORMATION  SDK_FILE_CASE_SENSITIVE_INFORMATION
+
+#define PFILE_STAT_INFORMATION           SDK_PFILE_STAT_INFORMATION
+#define PFILE_STAT_LX_INFORMATION        SDK_PFILE_STAT_LX_INFORMATION
+#define PFILE_CASE_SENSITIVE_INFORMATION SDK_PFILE_CASE_SENSITIVE_INFORMATION
+
+#include <phnt_windows.h>
+
+#undef _FILE_STAT_INFORMATION
+#undef _FILE_STAT_LX_INFORMATION
+#undef _FILE_CASE_SENSITIVE_INFORMATION
+
+#undef FILE_STAT_INFORMATION
+#undef FILE_STAT_LX_INFORMATION
+#undef FILE_CASE_SENSITIVE_INFORMATION
+#undef PFILE_STAT_INFORMATION
+#undef PFILE_STAT_LX_INFORMATION
+#undef PFILE_CASE_SENSITIVE_INFORMATION
+#include <phnt.h>
+
 #include<stdio.h>
 #include<tlhelp32.h>
-#include<shlwapi.h>
-#include <Winternl.h>
 
-
+/*
+// might need later
 #pragma comment(lib, "ntdll.lib")
 
 typedef NTSTATUS (__stdcall *NT_OPEN_FILE)(OUT PHANDLE
@@ -14,7 +38,7 @@ ObjectAttributes, OUT PIO_STATUS_BLOCK IoStatusBlock, IN ULONG
 ShareAccess, IN ULONG OpenOptions);
 
 extern "C" void __stdcall RtlGetVersion(OSVERSIONINFO*);
-
+*/
 bool CheckIfBrowser(wchar_t* processName) {
       bool res = false;
       const wchar_t* browsers[] = {
@@ -30,12 +54,28 @@ bool CheckIfBrowser(wchar_t* processName) {
       return res;
 }
 
+void test_phnt(void) {
+      PROCESS_BASIC_INFORMATION pbi = { sizeof(PROCESS_BASIC_INFORMATION) };
+      ULONG returnLength = 0; 
+
+      NTSTATUS status = NtQueryInformationProcess(
+            NtCurrentProcess(),
+            ProcessBasicInformation,
+            &pbi,
+            sizeof(pbi),
+            &returnLength
+      );
+
+      if(!NT_SUCCESS(status)) printf("IT DIDN'T WORK CALL THE AMBULANCE: 0x%08X\n", status);
+      else printf("CALL THE AMBULANCE BUT NOT FOR ME: %p\n", pbi.PebBaseAddress);
+}
+
 int main() {
       // Creates a snapshot of processes
       HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
       if(hSnapshot == INVALID_HANDLE_VALUE) {
             printf("[*] Failed to enumerate process");
-            exit(EXIT_FAILURE);
+            //exit(EXIT_FAILURE);
       }
 
       PROCESSENTRY32 currentProcess = { sizeof(PROCESSENTRY32) };
@@ -47,7 +87,7 @@ int main() {
       if(!Process32First(hSnapshot, &currentProcess)) {
             printf("[*] Failed to read snapshot");
             CloseHandle(hSnapshot);
-            exit(EXIT_FAILURE);
+            //exit(EXIT_FAILURE);
       }
 
       do {
@@ -66,6 +106,6 @@ int main() {
     );
 
       // HANDLE hInjectedProcess = NtCreateProcessEx();
-
+      test_phnt();
       return 0;
 }
