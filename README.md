@@ -1,28 +1,10 @@
-# Disclaimer
+## Purpose
+A simple PoC for an injection technique that uses PPID Spoofing to spawn a child process under a browser, then it performs process hollowing using the encrypted payload from resources.
 
-This is my personal cmake template, it's mostly vibe-coded and it's made to fit my usecase I'm open to any suggestions to make it better I will be updating it in case I learned more about cmake. 
+### Note
 
-# Creating a new project
-
-A project can be created using cmake, two starter templates are available `cli` and `gui`.
-
-```sh
-cmake -DNAME=<project_name> -P ./cmake/new_project.cmake
-```
-
-for GUI which uses `WinMain` instead of the normal `int main()`.
-
-```sh
-cmake -DNAME=<project_name> -DGUI=ON -P ./cmake/new_project.cmake
-```
-
-The command will create a directory with a starter `main.cpp` file and add the directory to the root `CMakeLists.txt`.
-
-```sh
-cmake -DNAME=<project_name> -DSINGLE=ON -P ./cmake/new_project.cmake
-```
-
-single mode can be used for singular project folders the root will contain the src of the project.
+- I tried to replicate the disassembly of PMA's lab12-02 so some stuff might have better implementation options.
+- I'm open to suggestions but still not sure if I will update this project.
 
 ## Building code
 
@@ -57,6 +39,8 @@ To run the project you will find the final exe at `build/<project_name>/<config>
 
 # References
 
-- [Protensec - Calling ntdll functions directly](https://www.proteansec.com/reverse-engineering/calling-ntdll-functions-directly/)
 - [Concealed Code Execution](https://www.huntandhackett.com/blog/concealed-code-execution-techniques-and-detection)
-
+- [iredteam - Process Hollowing and Portable Executable Relocations](https://www.ired.team/offensive-security/code-injection-process-injection/process-hollowing-and-pe-image-relocations)
+- [iredteam - PPID Spoofing](https://www.ired.team/offensive-security/defense-evasion/parent-process-id-ppid-spoofing)
+- [allthingsida - Understanding PE+ file format](https://youtube.com/playlist?list=PLL6vJ4QgqQGEBLuPTgmPqxX5pFqaoc-8u)
+- [msdn - PE Format](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format)
