@@ -3,7 +3,7 @@ A simple PoC for an injection technique that uses PPID Spoofing to spawn a child
 
 ### Note
 
-- I tried to replicate the disassembly of PMA's lab12-02 so some stuff might have better implementation options.
+- I tried to replicate the disassembly of [PMA's lab12-02](https://reizouko.me/posts/pma/lab-12-solution/#lab12-02) so some stuff might have better implementation options.
 - I'm open to suggestions but still not sure if I will update this project.
 
 ## Building code
