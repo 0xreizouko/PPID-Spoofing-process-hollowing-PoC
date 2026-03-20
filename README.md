@@ -48,3 +48,7 @@ To run the project you will find the final exe at `build/<project_name>/<config>
 - [iredteam - PPID Spoofing](https://www.ired.team/offensive-security/defense-evasion/parent-process-id-ppid-spoofing)
 - [allthingsida - Understanding PE+ file format](https://youtube.com/playlist?list=PLL6vJ4QgqQGEBLuPTgmPqxX5pFqaoc-8u)
 - [msdn - PE Format](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format)
+
+# Special Thanks
+- [Menoufia Man](https://www.linkedin.com/in/0xf444/)
+- [GG](https://www.linkedin.com/in/ahm3dgg/)
