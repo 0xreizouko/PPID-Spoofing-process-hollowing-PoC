@@ -50,5 +50,5 @@ To run the project you will find the final exe at `build/<project_name>/<config>
 - [msdn - PE Format](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format)
 
 # Special Thanks
-- [Menoufia Man](https://www.linkedin.com/in/0xf444/)
+- [Omar Mokhtar](https://www.linkedin.com/in/0xf444/)
 - [GG](https://www.linkedin.com/in/ahm3dgg/)
