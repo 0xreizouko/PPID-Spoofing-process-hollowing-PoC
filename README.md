@@ -6,6 +6,10 @@ A simple PoC for an injection technique that uses PPID Spoofing to spawn a child
 - I tried to replicate the disassembly of [PMA's lab12-02](https://reizouko.me/posts/pma/lab-12-solution/#lab12-02) so some stuff might have better implementation options.
 - I'm open to suggestions but still not sure if I will update this project.
 
+### Video
+
+![](https://raw.githubusercontent.com/0xreizouko/PPID-Spoofing-process-hollowing-PoC/main/assets/video.mp4)
+
 ## Building code
 
 configure the project
