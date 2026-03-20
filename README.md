@@ -8,7 +8,7 @@ A simple PoC for an injection technique that uses PPID Spoofing to spawn a child
 
 ### Video
 
-<video src="https://raw.githubusercontent.com/0xreizouko/PPID-Spoofing-process-hollowing-PoC/main/video.mp4" controls></video>
+https://github.com/user-attachments/assets/47697127-db33-4491-a442-cc2e34dc9be8
 
 ## Building code
 
